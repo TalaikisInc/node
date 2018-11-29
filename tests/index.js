@@ -11,6 +11,7 @@ const faker = require('faker');
 const apiBenchmark = require('api-benchmark');
 const url = `http://localhost:${process.env.API_PORT}/`;
 const request = require('supertest')(url);
+const inject = require('light-my-request')
 
 describe('general', () => {
   it('works', (done) => {
