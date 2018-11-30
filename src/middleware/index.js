@@ -4,6 +4,7 @@ import { json } from 'body-parser'
 import StatsD from 'node-statsd'
 import helmet from 'helmet'
 import errorhandler from 'errorhandler'
+import compression from 'compression'
 
 const stats = new StatsD()
 const app = express()
@@ -13,6 +14,8 @@ stats.socket.on('error', (error) => {
 })
 
 app.use(errorhandler())
+
+app.use(compression())
 
 app.use(json())
 

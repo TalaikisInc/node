@@ -1,7 +1,8 @@
-/* eslint semi: "error"*/
-const { join } = require('path')
-const NODE_ENV = process.env.NODE_ENV === 'production' ? 'production' : 'development'
-require('dotenv').config({ path: join(__dirname, `../.env.${NODE_ENV}`) })
+/* eslint semi: "error" */
+/* global define, it, describe */
+const { join } = require('path');
+const NODE_ENV = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+require('dotenv').config({ path: join(__dirname, `../.env.${NODE_ENV}`) });
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 const should = chai.should();
@@ -11,17 +12,17 @@ const faker = require('faker');
 const apiBenchmark = require('api-benchmark');
 const url = `http://localhost:${process.env.API_PORT}/`;
 const request = require('supertest')(url);
-const inject = require('light-my-request')
+const inject = require('light-my-request');
 
 describe('general', () => {
   it('works', (done) => {
-    request.get('')
+    request.get('/status')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
         res.should.have.property('body');
-        res.body.should.have.property('hello');
-        res.body.hello.should.be.equal('world');
+        res.body.should.have.property('status');
+        res.body.hello.should.be.equal('up');
         done();
       });
   });
@@ -32,7 +33,7 @@ describe('general', () => {
     };
 
     const routes = {
-      route: { name: 'Index', route: '/', method: 'get', data: { } },
+      route: { name: 'status', route: '/status', method: 'get', data: { } },
     };
 
     apiBenchmark.measure(service, routes, (err, res) => {

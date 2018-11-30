@@ -4,15 +4,23 @@ import router from '../router'
 import app from '../middleware'
 import { join } from 'path'
 
+let transports = []
+const devTransports = [
+  new winston.transports.Console()
+]
+
+const prodTransports = [
+  new winston.transports.File({ filename: join(__dirname, '../../.logs', 'logs.log'), level: 'info' })
+]
+
+transports = process.env.NODE_ENV === 'production' ? prodTransports : devTransports
+
 app.use(logger({
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: join(__dirname, '../../logs', 'access.log'), level: 'info' })
-  ],
+  transports: transports,
   format: winston.format.combine(
     winston.format.json()
   ),
-  meta: true,
+  meta: false,
   msg: 'HTTP {{req.method}} {{res.responseTime}}ms {{res.statusCode}} {{req.url}}',
   expressFormat: true,
   colorize: false,
@@ -24,10 +32,7 @@ app.use(logger({
 app.use(router)
 
 app.use(errorLogger({
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: join(__dirname, '../../logs', 'error.log'), level: 'error' })
-  ],
+  transports: transports,
   format: winston.format.combine(
     winston.format.json()
   )
