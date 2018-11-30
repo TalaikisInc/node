@@ -1,7 +1,7 @@
-const log = (msg) => {
-  console.log(msg)
-}
+import { log } from './debug'
+import app from './logging'
 
 export {
-  log
+  log,
+  app
 }

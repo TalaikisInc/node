@@ -5,16 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/index.js",
-    "start": "node start.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TalaikisInc/node_typescript.git"
-  },
-  "author": "Tadas Talaikis <info@talaikis.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TalaikisInc/node_typescript/issues"
+    "start": "node start.js",
+    "start:production": "if [[ ${NODE_ENV} = production ]]; then ./node_modules/.bin/pm2-docker start -i 0 start.js; else ./node_modules/.bin/pm2-dev start.js; fi"
   },
   "homepage": "https://github.com/TalaikisInc/node_typescript#readme",
   "devDependencies": {
@@ -32,6 +24,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "faker": "^4.1.0",
     "light-my-request": "^3.1.0",
+    "loadtest": "^3.0.4",
     "mocha": "^5.2.0",
     "supertest": "^3.3.0"
   },
@@ -39,6 +32,12 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^6.1.0",
-    "express": "^4.16.4"
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.4",
+    "express-winston": "^3.0.1",
+    "helmet": "^3.15.0",
+    "monk": "^6.0.6",
+    "node-statsd": "^0.1.1",
+    "winston": "^3.1.0"
   }
 }
