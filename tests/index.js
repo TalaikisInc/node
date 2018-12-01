@@ -14,15 +14,18 @@ const url = `http://localhost:${process.env.API_PORT}/`;
 const request = require('supertest')(url);
 const inject = require('light-my-request');
 
+// @FIXME by some reason it gives 404, when browser works fine.
 describe('general', () => {
   it('works', (done) => {
-    request.get('/status')
+    request.get('status')
       .expect(200)
       .end((err, res) => {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
         res.should.have.property('body');
         res.body.should.have.property('status');
-        res.body.hello.should.be.equal('up');
+        res.body.status.should.be.equal('up');
         done();
       });
   });
