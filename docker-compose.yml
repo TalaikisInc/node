@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    image: node:11-alpine
+    build: .
+    command: npm run start:production
+    ports:
+      - "3001:3000"
+    depends_on:
+      - redis
+    environment:
+      ENV API_PORT: 3000
+      ENV NODE_ENV: production
+      ENV REDIS_HOST: redis
+      REDIS_PASSWORD: test
+  redis:
+    image: redis:alpine
+    ports:
+      - "6380:6379"

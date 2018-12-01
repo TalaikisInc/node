@@ -5,7 +5,7 @@ const startedAt = new Date()
 
 module.exports = (req, res, next) => {
   const server = req.app
-  if (req.params('info')) {
+  if (req.param('info')) {
     const connections = {}
     let swap
     async.parallel([
@@ -31,7 +31,7 @@ module.exports = (req, res, next) => {
       res.send({
         status: 'up',
         version: server.get('version'),
-        sha: server.et('git sha'),
+        sha: server.get('git sha'),
         started_at: startedAt,
         node: {
           version: process.version,
@@ -44,7 +44,7 @@ module.exports = (req, res, next) => {
         },
         env: process.env.NODE_ENV,
         hostname: hostname(),
-        connections,
+        connections: connections,
         swap
       })
     })
