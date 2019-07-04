@@ -1,0 +1,48 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-parser > graphql-config > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - express-winston > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - winston > async > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - apollo-server-express > apollo-server-core > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - apollo-server-express > apollo-server-core > apollo-engine-reporting > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-parser > graphql-config > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-config > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-parser > graphql-language-service-types > graphql-config > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-parser > graphql-config > graphql-import > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-utils > graphql-config > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - express-redis-cache > async > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-types > graphql-config > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-config > graphql-import > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-parser > graphql-language-service-types > graphql-config > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-types > graphql-config > graphql-import > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-utils > graphql-language-service-types > graphql-config > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-utils > graphql-config > graphql-import > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-parser > graphql-language-service-types > graphql-config > graphql-import > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-parser > graphql-config > graphql-import > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-parser > graphql-language-service-types > graphql-config > graphql-import > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
+    - graphiql > codemirror-graphql > graphql-language-service-interface > graphql-language-service-utils > graphql-language-service-types > graphql-config > graphql-import > lodash:
+        patched: '2019-07-04T08:44:08.027Z'
